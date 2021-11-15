@@ -33,7 +33,7 @@ public class AirplaneServiceImpl implements AirplaneService {
 
     @Override
     public Iterable<Airplane> getAllAirplanes() {
-        StreamSupport.stream(airplaneRepository.findAll().spliterator(), false)
+       return StreamSupport.stream(airplaneRepository.findAll().spliterator(), false)
                 .map(Airplane::new)
                 .collect(Collectors.toList());
     }
