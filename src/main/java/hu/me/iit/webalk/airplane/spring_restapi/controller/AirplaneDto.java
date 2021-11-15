@@ -12,7 +12,7 @@ public class AirplaneDto {
     @NotBlank
     private String manufacturer;
     @NotNull
-    private long modelNumber;
+    private String modelNumber;
     @NotBlank
     private String airline;
     @Min(1)
@@ -21,7 +21,7 @@ public class AirplaneDto {
     public AirplaneDto() {
     }
 
-    public AirplaneDto(Long id, String manufacturer, long modelNumber, String airline, int capacity) {
+    public AirplaneDto(Long id, String manufacturer, String modelNumber, String airline, int capacity) {
         this.id = id;
         this.manufacturer = manufacturer;
         this.modelNumber = modelNumber;
@@ -35,10 +35,6 @@ public class AirplaneDto {
         this.modelNumber = airplane.getModelNumber();
         this.airline = airplane.getAirline();
         this.capacity = airplane.getCapacity();
-    }
-
-    public Airplane toAirplane(){
-        return new Airplane(id, manufacturer, modelNumber, airline, capacity);
     }
 
     public Long getId() {
@@ -57,11 +53,11 @@ public class AirplaneDto {
         this.manufacturer = manufacturer;
     }
 
-    public long getModelNumber() {
+    public String getModelNumber() {
         return modelNumber;
     }
 
-    public void setModelNumber(long modelNumber) {
+    public void setModelNumber(String modelNumber) {
         this.modelNumber = modelNumber;
     }
 
@@ -79,6 +75,10 @@ public class AirplaneDto {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+    public Airplane toAirplane(){
+        return new Airplane(id, manufacturer, modelNumber, airline, capacity);
     }
 
 }

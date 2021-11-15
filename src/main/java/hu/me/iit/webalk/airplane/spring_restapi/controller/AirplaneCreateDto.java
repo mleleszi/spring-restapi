@@ -11,7 +11,7 @@ public class AirplaneCreateDto {
 
     private String manufacturer;
     @NotNull
-    private long modelNumber;
+    private String modelNumber;
     @NotBlank
     private String airline;
     @Min(1)
@@ -20,7 +20,7 @@ public class AirplaneCreateDto {
     public AirplaneCreateDto() {
     }
 
-    public AirplaneCreateDto(Long id, String manufacturer, long modelNumber, String airline, int capacity) {
+    public AirplaneCreateDto(Long id, String manufacturer, String modelNumber, String airline, int capacity) {
         this.manufacturer = manufacturer;
         this.modelNumber = modelNumber;
         this.airline = airline;
@@ -42,11 +42,11 @@ public class AirplaneCreateDto {
         this.manufacturer = manufacturer;
     }
 
-    public long getModelNumber() {
+    public String getModelNumber() {
         return modelNumber;
     }
 
-    public void setModelNumber(long modelNumber) {
+    public void setModelNumber(String modelNumber) {
         this.modelNumber = modelNumber;
     }
 

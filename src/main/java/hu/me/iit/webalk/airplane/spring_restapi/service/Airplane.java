@@ -6,14 +6,14 @@ public class Airplane {
 
     private Long id;
     private String manufacturer;
-    private long modelNumber;
+    private String modelNumber;
     private String airline;
     private int capacity;
 
     public Airplane() {
     }
 
-    public Airplane(Long id, String manufacturer, long modelNumber, String airline, int capacity) {
+    public Airplane(Long id, String manufacturer, String modelNumber, String airline, int capacity) {
         this.id = id;
         this.manufacturer = manufacturer;
         this.modelNumber = modelNumber;
@@ -45,11 +45,11 @@ public class Airplane {
         this.manufacturer = manufacturer;
     }
 
-    public long getModelNumber() {
+    public String getModelNumber() {
         return modelNumber;
     }
 
-    public void setModelNumber(long modelNumber) {
+    public void setModelNumber(String modelNumber) {
         this.modelNumber = modelNumber;
     }
 
