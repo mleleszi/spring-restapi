@@ -1,40 +1,37 @@
-package hu.me.iit.webalk.airplane.spring_restapi.service;
+package hu.me.iit.webalk.airplane.spring_restapi.controller;
 
-import hu.me.iit.webalk.airplane.spring_restapi.repository.AirplaneEntity;
+import hu.me.iit.webalk.airplane.spring_restapi.service.Airplane;
 
-public class Airplane {
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-    private Long id;
+public class AirplaneCreateDto {
+
+
     private String manufacturer;
+    @NotNull
     private long modelNumber;
+    @NotBlank
     private String airline;
+    @Min(1)
     private int capacity;
 
-    public Airplane() {
+    public AirplaneCreateDto() {
     }
 
-    public Airplane(Long id, String manufacturer, long modelNumber, String airline, int capacity) {
-        this.id = id;
+    public AirplaneCreateDto(Long id, String manufacturer, long modelNumber, String airline, int capacity) {
         this.manufacturer = manufacturer;
         this.modelNumber = modelNumber;
         this.airline = airline;
         this.capacity = capacity;
     }
 
-    public Airplane(AirplaneEntity airplaneEntity){
-        this.id = airplaneEntity.getId();
-        this.manufacturer = airplaneEntity.getManufacturer();
-        this.modelNumber = airplaneEntity.getModelNumber();
-        this.airline = airplaneEntity.getAirline();
-        this.capacity = airplaneEntity.getCapacity();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public AirplaneCreateDto(Airplane airplane){
+        this.manufacturer = airplane.getManufacturer();
+        this.modelNumber = airplane.getModelNumber();
+        this.airline = airplane.getAirline();
+        this.capacity = airplane.getCapacity();
     }
 
     public String getManufacturer() {
@@ -69,7 +66,8 @@ public class Airplane {
         this.capacity = capacity;
     }
 
-    public AirplaneEntity toEntity(){
-        return new AirplaneEntity(id, manufacturer, modelNumber, airline, capacity);
+    public Airplane toAirplane(){
+        return new Airplane(null, manufacturer, modelNumber, airline, capacity);
     }
+
 }
