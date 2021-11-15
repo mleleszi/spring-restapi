@@ -33,5 +33,15 @@ public class AirplaneController {
         return new AirplaneDto(airplaneService.create(airplaneCreateDto.toAirplane()));
     }
 
+    @PutMapping
+    public void save(@RequestBody @Valid AirplaneDto airplaneDto){
+        airplaneService.save(airplaneDto.toAirplane());
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable Long id){
+        airplaneService.deleteById(id);
+    }
+
 
 }
